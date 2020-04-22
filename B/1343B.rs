@@ -8,25 +8,12 @@ fn get_line() -> io::Result<String> {
 	Ok(buffer)
 }
 
-#[allow(dead_code)]
 fn get_input_number<T>() -> Result<T, Box<dyn Error + 'static>>
 where
 	T: FromStr,
 	<T as FromStr>::Err: Error + 'static,
 {
 	Ok(get_line()?.trim().parse::<T>()?)
-}
-
-#[allow(dead_code)]
-fn get_input_array<T>() -> Result<Vec<T>, Box<dyn Error + 'static>>
-where
-	T: FromStr,
-	<T as FromStr>::Err: Error + 'static,
-{
-	Ok(get_line()?
-		.split_whitespace()
-		.map(|s| s.parse::<T>())
-		.collect::<Result<Vec<_>, _>>()?)
 }
 
 fn get_solution(mut n: u64) {
