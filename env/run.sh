@@ -1,0 +1,1 @@
+cargo build && cat test.txt | ./target/debug/env
